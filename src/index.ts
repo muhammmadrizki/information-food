@@ -8,6 +8,8 @@ app.get("/", (c) => {
   return c.json({
     message: "Hello Semuanya!",
     author: "Rizki",
+    ok: true,
+    number: 123456,
   });
 });
 
