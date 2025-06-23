@@ -1,4 +1,5 @@
 import { Hono } from "hono";
+import { foods } from "./data/foods";
 
 const app = new Hono();
 
@@ -16,32 +17,7 @@ app.get("/", (c) => {
 app.get("/foods", (c) => {
   // return c.text("Hello Semuanya!\nHello Rizki");
 
-  return c.json([
-    {
-      id: 1,
-      name: "Burgo",
-    },
-    {
-      id: 2,
-      name: "Laksan",
-    },
-    {
-      id: 3,
-      name: "Mie Celor",
-    },
-    {
-      id: 4,
-      name: "Pindang Patin",
-    },
-    {
-      id: 5,
-      name: "Pempek",
-    },
-    {
-      id: 6,
-      name: "Ragit",
-    },
-  ]);
+  return c.json(foods);
 });
 
 export default app;
