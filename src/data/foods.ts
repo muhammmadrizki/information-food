@@ -1,3 +1,4 @@
+//added taste and category
 export const foods = [
   {
     id: 1,
