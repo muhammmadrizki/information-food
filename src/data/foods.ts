@@ -1,12 +1,19 @@
-//added taste and category
-export const foods = [
+type Food = {
+  id: number;
+  name: string;
+  taste?: "savory" | "spicy" | "sweet";
+};
+
+export const foods: Food[] = [
   {
     id: 1,
     name: "Burgo",
+    taste: "savory",
   },
   {
     id: 2,
     name: "Laksan",
+    taste: "spicy",
   },
   {
     id: 3,
