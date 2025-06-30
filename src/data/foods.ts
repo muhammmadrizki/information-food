@@ -1,58 +1,60 @@
 type Food = {
   id: number;
   name: string;
-  taste?: "savory" | "spicy" | "sweet";
+  tastes?: Taste[];
 };
+
+type Taste = "savory" | "spicy" | "sweet" | "bitter";
 
 export const foods: Food[] = [
   {
     id: 1,
     name: "Burgo",
-    taste: "savory",
+    tastes: ["savory"],
   },
   {
     id: 2,
     name: "Laksan",
-    taste: "spicy",
+    tastes: ["spicy"],
   },
   {
     id: 3,
     name: "Mie Celor",
-    taste: "savory",
+    tastes: ["savory"],
   },
   {
     id: 4,
     name: "Pindang Patin",
-    taste: "spicy",
+    tastes: ["spicy"],
   },
   {
     id: 5,
     name: "Pempek",
-    taste: "savory",
+    tastes: ["savory", "spicy", "sweet"],
   },
   {
     id: 6,
     name: "Ragit",
-    taste: "savory",
+    tastes: ["savory"],
   },
   {
     id: 7,
     name: "Tekwan",
-    taste: "savory",
+    tastes: ["savory"],
   },
   {
     id: 8,
     name: "Model",
-    taste: "savory",
+    tastes: ["savory"],
   },
   {
     id: 9,
     name: "Celimpungan",
-    taste: "savory",
+    tastes: ["savory"],
   },
   {
     id: 10,
     name: "Kemplang",
-    taste: "savory",
+    tastes: ["savory"],
   },
 ];
