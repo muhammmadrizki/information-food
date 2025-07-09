@@ -4,7 +4,7 @@ type Food = {
   taste?: "savory" | "spicy" | "sweet";
 };
 
-export const foods: Food[] = [
+export const dataFoods: Food[] = [
   {
     id: 1,
     name: "Burgo",

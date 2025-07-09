@@ -1,6 +1,7 @@
 import { Hono } from "hono";
-import { foods } from "./data/foods";
+import { dataFoods } from "./data/foods";
 
+let foods = dataFoods;
 const app = new Hono();
 
 app.get("/", (c) => {
@@ -19,7 +20,7 @@ app.get("/foods", (c) => {
 app.get("/foods/:id", (c) => {
   const id = Number(c.req.param("id"));
 
-  const food = foods.find((food) => food.id === id);
+  const food = dataFoods.find((food) => food.id === id);
 
   if (!food) {
     return c.notFound();
@@ -31,21 +32,21 @@ app.get("/foods/:id", (c) => {
 app.post("/foods", async (c) => {
   const body = await c.req.json();
 
-  const nextId = foods[foods.length - 1].id + 1 || 1; // Increment the last ID
+  const nextId = dataFoods[dataFoods.length - 1].id + 1 || 1; // Increment the last ID
 
-  const updatedFoods = [
-    ...foods,
-    {
-      id: nextId,
-      ...body,
-    },
-  ];
+  const newFood = {
+    id: nextId,
+    ...body,
+  };
+
+  const updatedFoods = [...dataFoods, newFood];
 
   console.log(updatedFoods);
 
   //console.log(body);
+  foods = updatedFoods;
 
-  return c.json(body);
+  return c.json(newFood);
 });
 
 export default app;
