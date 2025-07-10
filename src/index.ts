@@ -72,4 +72,51 @@ app.delete("/foods/:id", (c) => {
   return c.json(filteredFoods);
 });
 
+//PATCH UPDATE FOODS BY ID
+app.patch("/foods/:id", async (c) => {
+  const id = Number(c.req.param("id"));
+  const body = await c.req.json();
+
+  const newFood = {
+    id: Number(id),
+    ...body,
+  };
+
+  const updatedFood = foods.map((food) => {
+    if (food.id == id) {
+      return {
+        ...food,
+        ...newFood,
+      };
+    } else {
+      return food;
+    }
+  });
+
+  foods = updatedFood;
+  return c.json(newFood);
+});
+
+//  PUT UPDATE FOODS BY ID
+app.put("/foods/:id", async (c) => {
+  const id = Number(c.req.param("id"));
+  const body = await c.req.json();
+
+  const newFood = {
+    id: Number(id),
+    ...body,
+  };
+
+  const updatedFood = foods.map((food) => {
+    if (food.id == id) {
+      return newFood;
+    } else {
+      return food;
+    }
+  });
+
+  foods = updatedFood;
+  return c.json(newFood);
+});
+
 export default app;

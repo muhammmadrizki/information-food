@@ -55,4 +55,9 @@ export const dataFoods: Food[] = [
     name: "Tekwan",
     taste: "savory",
   },
+  {
+    id: 11,
+    name: "Tempoyak",
+    taste: "savory",
+  },
 ];
