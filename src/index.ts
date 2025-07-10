@@ -72,13 +72,4 @@ app.delete("/foods/:id", (c) => {
   return c.json(filteredFoods);
 });
 
-//   const filteredSchool = schools.filter((school) => {
-//     return school.id != id;
-//   });
-
-//   schools = filteredSchool;
-
-//   return c.json(filteredSchool);
-// });
-
 export default app;
