@@ -12,6 +12,11 @@
 | `/foods/:id` | PATCH  | Patch foods by id  |      |
 | `/foods/:id` | PUT    | Update foods by id |      |
 
+## ERD DIAGRAM
+
+![ERD Diagram](/assets/information-food.png)
+[ERD Diagram] (https://dbdiagram.io/d/686fc3c3f413ba3508434693)
+
 To install dependencies:
 
 ```sh
