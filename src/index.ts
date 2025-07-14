@@ -19,6 +19,7 @@ app.get("/", (c) => {
 //GET API
 app.get("/foods", async (c) => {
   const allFoods = await prisma.food.findMany();
+  console.log(allFoods);
 
   return c.json(allFoods);
 });
