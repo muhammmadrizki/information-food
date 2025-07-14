@@ -1,5 +1,8 @@
 import { Hono } from "hono";
 import { dataFoods } from "./data/foods";
+import { PrismaClient } from "./generated/prisma";
+
+const prisma = new PrismaClient();
 
 let foods = dataFoods;
 const app = new Hono();
@@ -14,8 +17,10 @@ app.get("/", (c) => {
 });
 
 //GET API
-app.get("/foods", (c) => {
-  return c.json(foods);
+app.get("/foods", async (c) => {
+  const allFoods = await prisma.food.findMany();
+
+  return c.json(allFoods);
 });
 
 app.get("/foods/:id", (c) => {
