@@ -16,10 +16,10 @@ const client = new pg.Client({
 
 await client.connect();
 
-const res = await client.query("SELECT * FROM users");
+const res = await client.query("SELECT * FROM foods");
 
-const users = res.rows;
+const foods = res.rows;
 
-console.log({ users });
+console.log({ foods });
 
 await client.end();
