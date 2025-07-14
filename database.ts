@@ -1,25 +1,19 @@
-// Optional, if needed
-// import "dotenv/config";
+import { PrismaClient } from "./src/generated/prisma";
 
-import * as pg from "pg";
+const prisma = new PrismaClient();
 
-const client = new pg.Client({
-  connectionString: process.env.DATABASE_URL,
+async function main() {
+  const allFoods = await prisma.food.findMany();
 
-  // If using separate variables
-  // host: process.env.POSTGRES_HOST,
-  // user: process.env.POSTGRES_USER,
-  // password: process.env.POSTGRES_PASSWORD,
-  // database: process.env.POSTGRES_DB,
-  // port: Number(process.env.POSTGRES_PORT),
-});
+  console.log(allFoods);
+}
 
-await client.connect();
-
-const res = await client.query("SELECT * FROM foods");
-
-const foods = res.rows;
-
-console.log({ foods });
-
-await client.end();
+main()
+  .then(async () => {
+    await prisma.$disconnect();
+  })
+  .catch(async (e) => {
+    console.error(e);
+    await prisma.$disconnect();
+    process.exit(1);
+  });
