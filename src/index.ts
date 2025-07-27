@@ -9,7 +9,7 @@ const app = new Hono();
 
 app.get("/", (c) => {
   return c.json({
-    message: "Hello everyone!",
+    message: "Information Foods!",
     author: "Rizki",
     ok: true,
     number: 123456,
