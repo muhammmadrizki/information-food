@@ -34,7 +34,7 @@ app.get("/foods/:id", (c) => {
   return c.json(food);
 });
 
-//GET POST API
+//POST API
 
 app.post("/foods", async (c) => {
   const body = await c.req.json();
