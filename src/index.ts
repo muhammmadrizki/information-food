@@ -10,7 +10,7 @@ const app = new Hono();
 app.get("/", (c) => {
   return c.json({
     message: "Information Foods!",
-    website: "/foods",
+    foods: "/foods",
   });
 });
 
