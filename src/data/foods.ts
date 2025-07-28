@@ -1,7 +1,7 @@
 type Food = {
   id: number;
   name: string;
-  taste?: "savory" | "spicy" | "sweet";
+  taste: string;
 };
 
 export const dataFoods: Food[] = [
